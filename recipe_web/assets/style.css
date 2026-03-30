@@ -1,0 +1,157 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f5f0fa; color: #2a2435; }
+
+/* Layout */
+.app-layout { display: flex; height: 100vh; overflow: hidden; }
+
+/* Sidebar */
+.sidebar {
+    width: 260px; min-width: 220px;
+    border-right: 1px solid #ddd4e8;
+    display: flex; flex-direction: column;
+    background: #ece5f3;
+}
+.search {
+    margin: .8rem; padding: .5rem .7rem;
+    border: 1px solid #c8bdd6; border-radius: 6px;
+    font-size: .95rem; background: #fff;
+}
+.search:focus { outline: none; border-color: #9b7fbf; }
+.recipe-items {
+    flex: 1; overflow-y: auto;
+}
+.recipe-item {
+    padding: .55rem 1rem; cursor: pointer;
+    font-size: .92rem; border-left: 3px solid transparent;
+}
+.recipe-item:hover { background: #e2d9ee; }
+.recipe-item.selected {
+    background: #d8cce6;
+    border-left-color: #9b7fbf;
+    font-weight: 600;
+}
+
+/* Search highlights */
+.highlight {
+    background: #e8d5f5;
+    border-radius: 2px;
+    font-weight: 600;
+}
+.ingredient-match {
+    font-size: 0.8em;
+    color: #8a6faa;
+    font-style: italic;
+}
+
+/* Detail panel */
+.detail-panel { flex: 1; padding: 2rem; overflow-y: auto; }
+.recipe-name {
+    font-size: 1.7rem; font-weight: 700;
+    margin-bottom: .8rem; color: #3d2e5c;
+}
+
+.meta-row {
+    display: flex; gap: .8rem; align-items: center;
+    flex-wrap: wrap; margin-bottom: .8rem;
+}
+.meta-row label { font-size: .8rem; color: #7a6b8a; }
+.meta-value {
+    font-size: .95rem; color: #3d2e5c;
+    padding: .2rem .5rem;
+    background: #ece5f3; border-radius: 4px;
+}
+
+.recipe-notes {
+    padding: .6rem .8rem;
+    margin-top: 1rem; background: #f0ebf5;
+    width: 50%;
+    border-radius: 6px; border: 1px solid #b8a4d0;
+    box-shadow: 0 2px 8px rgba(155, 127, 191, 0.25);
+}
+.notes-title {
+    font-size: .85rem; font-weight: 600;
+    color: #9b7fbf; text-transform: uppercase;
+    letter-spacing: .04em;
+    margin-bottom: .4rem;
+}
+.notes-list {
+    list-style: none; padding: 0; margin: 0;
+}
+.notes-list li {
+    font-size: .9rem; color: #4a3d5c;
+    padding: .25rem 0 .25rem 1rem;
+    position: relative;
+}
+.notes-list li::before {
+    content: "\2022"; position: absolute;
+    left: 0; color: #9b7fbf; font-weight: 700;
+}
+
+/* Ingredient table */
+.ingredient-section {
+    margin-top: .5rem;
+    width: 50%;
+    background: #f7f3fb;
+    border: 1px solid #c8bdd6;
+    border-radius: 6px;
+    padding: .5rem .8rem;
+    box-shadow: 0 2px 8px rgba(155, 127, 191, 0.25);
+}
+.ingredient-table { width: 100%; border-collapse: collapse; }
+.ingredient-table th {
+    text-align: left; padding: .4rem .5rem;
+    border-bottom: 2px solid #c8bdd6; font-size: .82rem;
+    text-transform: uppercase; color: #8a7b9e;
+}
+.ingredient-table td {
+    border-bottom: 1px solid #e8e0f0;
+    padding: .35rem .5rem; font-size: .92rem;
+}
+.ingredient-table th:nth-child(1),
+.ingredient-table th:nth-child(2),
+.ingredient-table td:nth-child(1),
+.ingredient-table td:nth-child(2) {
+    width: 1%; white-space: nowrap;
+}
+.step-header td {
+    padding-top: 1rem; padding-bottom: .3rem;
+    font-weight: 600; font-size: .85rem;
+    color: #9b7fbf; text-transform: uppercase;
+    letter-spacing: .04em;
+    border-bottom: 1px solid #c8bdd6;
+}
+
+/* Quantity scaling */
+.qty-input {
+    width: 5rem; padding: .2rem .4rem;
+    border: 1px solid #c8bdd6; border-radius: 4px;
+    font-size: .9rem; background: #fff;
+    text-align: right;
+}
+.qty-input:focus { outline: none; border-color: #9b7fbf; }
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-input { -moz-appearance: textfield; }
+.scale-bar {
+    display: flex; align-items: center; gap: .6rem;
+    margin-bottom: .5rem; font-size: .85rem;
+}
+.scale-label {
+    color: #9b7fbf; font-weight: 600;
+}
+.scale-reset {
+    padding: .2rem .6rem; font-size: .8rem;
+    background: #ece5f3; border: 1px solid #c8bdd6;
+    border-radius: 4px; cursor: pointer; color: #4a3d5c;
+}
+.scale-reset:hover { background: #d8cce6; }
+.scale-ref-row { background: #ece5f3; }
+.original-qty {
+    color: #a99bbe; font-size: .85rem; font-style: italic;
+}
+
+/* Empty state */
+.empty-state {
+    flex: 1; display: flex; align-items: center;
+    justify-content: center; color: #a99bbe; font-size: 1.1rem;
+}

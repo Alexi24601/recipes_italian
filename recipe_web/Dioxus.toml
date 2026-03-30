@@ -1,0 +1,9 @@
+[application]
+name = "recipe_web"
+
+[web.app]
+title = "Ricette Pasticceria"
+
+[web.watcher]
+reload_html  = true
+watch_path   = ["src", "assets"]
